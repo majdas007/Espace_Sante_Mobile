@@ -9,6 +9,7 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.codename1.io.Log;
 import com.codename1.ui.Toolbar;
+import com.mycompany.myapp.GUI.ForumUI;
 import java.io.IOException;
 
 /**
@@ -35,9 +36,10 @@ public class Main {
             current.show();
             return;
         }
-        Form hi = new Form("Hi World");
-        hi.addComponent(new Label("Hi World"));
-        hi.show();
+        
+        ForumUI h = new ForumUI();
+        h.getF().show();
+        
     }
 
     public void stop() {
