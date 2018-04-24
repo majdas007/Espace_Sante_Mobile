@@ -9,6 +9,8 @@ import com.codename1.components.SpanLabel;
 import com.codename1.ui.Form;
 import com.mycompany.myapp.Entite.Question;
 import com.mycompany.myapp.Service.QuestionService;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,6 +27,8 @@ public class QuestionUi {
         lb = new SpanLabel("");
         f.add(lb);
         QuestionService QuestionService =new QuestionService();
+        List <Question> list = new ArrayList<>();
+        list = QuestionService.getList2();
        lb.setText(QuestionService.getList2().toString());
         /*/
         ConnectionRequest con = new ConnectionRequest();

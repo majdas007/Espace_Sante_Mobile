@@ -24,6 +24,28 @@ import java.util.Map;
 public class QuestionService {
     
     
+      public void addQuest(Question q) {
+        ConnectionRequest con = new ConnectionRequest();
+        String Url = "http://localhost/EspaceSante/web/app_dev.php/questionaddapi?contenu=" + q.getContenu_question() + "&subject=" + q.getSujet_question();
+        con.setUrl(Url);
+
+        //System.out.println("tt");
+
+        con.addResponseListener((e) -> {
+            String str = new String(con.getResponseData());
+            System.out.println(str);
+
+        });
+        NetworkManager.getInstance().addToQueueAndWait(con);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
   public ArrayList<Question> getListTask(String json) {
 
         ArrayList<Question> QuestionList = new ArrayList<>();
@@ -32,10 +54,10 @@ public class QuestionService {
             System.out.println(json);
             JSONParser j = new JSONParser();
 
-            Map<String, Object> etudiants = j.parseJSON(new CharArrayReader(json.toCharArray()));
-            System.out.println(etudiants);
+            Map<String, Object> Question = j.parseJSON(new CharArrayReader(json.toCharArray()));
+            System.out.println(Question);
            
-            List<Map<String, Object>> list = (List<Map<String, Object>>) etudiants.get("root");
+            List<Map<String, Object>> list = (List<Map<String, Object>>) Question.get("root");
 
             for (Map<String, Object> obj : list) {
                 Question e = new Question();

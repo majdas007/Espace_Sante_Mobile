@@ -50,7 +50,12 @@ public class Question {
     
     
     
-    
+     public Question( String sujet_question  ,String contenu_question  ) {
+        
+        this.sujet_question = sujet_question;
+        this.contenu_question = contenu_question;
+        
+    }
     
     public Question( String sujet_question  ,String nom_catF,String contenu_question  ) {
         

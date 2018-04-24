@@ -28,6 +28,10 @@ public class ForumUI {
         f.add(btnajout);
         f.add(btnaff);
         
+         btnajout.addActionListener((e)->{
+        AddQuestion a=new AddQuestion();
+        a.getF().show();
+        });
         
         
          btnaff.addActionListener((e)->{
